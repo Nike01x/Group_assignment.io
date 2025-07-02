@@ -31,13 +31,10 @@
 
         <section id="home" class="section active">
             <div class="container">
-                <div class="team-photo" style="width: 300px; height: 300px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
-                    <img src="PIC\Black and White Minimalist Professional Initial Logo[1].jpg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>           
                 <div class="hero">
-                    <!--<div class="team-photo" style="width: 300px; height: 300px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
+                    <div class="team-photo" style="width: 300px; height: 300px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
                         <img src="PIC\Black and White Minimalist Professional Initial Logo[1].jpg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>-->           
+                    </div>           
                     <h1>Premium Templates Design!</h1>
                     <p>Transform your ideas into stunning visuals with our professionally crafted templates!</p>
                     <a href="#" class="cta-button" onclick="showSection('templates',event)">Explore Templates</a>
@@ -72,7 +69,7 @@
                         <div class="template-category">
                             <div class="category-icon">📄</div>
                             <h3 class="category-title">Resume Templates</h3>
-                            <p class="category-description">Professional resume and CV templates that help you stand out from the crowd</p>
+                            <p class="category-description">Resume and CV templates that help you stand out from the crowd</p>
                             <span class="template-count"><a href="#" class="cta2-button" onclick="showSection('resume')">ORDER NOW!</a></span>
                         </div>
                         <div class="template-category">
@@ -90,7 +87,7 @@
                         <div class="template-category">
                             <div class="category-icon">📋</div>
                             <h3 class="category-title">Poster Templates</h3>
-                            <p class="category-description">Creative posters for events, marketing, and promotional campaigns</p>
+                            <p class="category-description">Creative posters, marketing, and promotional campaigns</p>
                             <span class="template-count"><a href="#" class="cta2-button" onclick="showSection('poster')">ORDER NOW!</a></span>
                         </div>
                         <div class="template-category">
@@ -147,9 +144,122 @@
                     class="enlarged-img">
             </div>
 
+            <center><a href="#" class="cta-button" onclick="showSection('cust_resume')">Want us to customize your resume?</a></center>
+
             <center><a href="#" class="cta-button" onclick="showSection('templates')">return</a></center>
         </section>
 
+        <!--cust_resume section-->
+        <section id="cust_resume" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2 class="section-title">Custom Resume Order</h2>
+                    <p style="text-align: center; margin-bottom: 2rem;">Fill out your details below and our designers will create a professional resume tailored just for you!</p>
+                    
+                    <form class="contact-form" action="process_resume.php" method="POST" enctype="multipart/form-data" onsubmit="handleResumeSubmit(event)">
+                        <!-- Personal Information -->
+                        <h3 style="color: #815854; margin: 2rem 0 1rem;">Personal Information</h3>
+                        <div class="form-group">
+                            <label for="resume-name">Full Name*</label>
+                            <input type="text" id="resume-name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-email">Email Address*</label>
+                            <input type="email" id="resume-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-phone">Phone Number</label>
+                            <input type="tel" id="resume-phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-address">Address</label>
+                            <input type="text" id="resume-address" name="address">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-linkedin">LinkedIn Profile (optional)</label>
+                            <input type="url" id="resume-linkedin" name="linkedin">
+                        </div>
+                        
+                        <!-- Professional Information -->
+                        <h3 style="color: #815854; margin: 2rem 0 1rem;">Professional Information</h3>
+                        <div class="form-group">
+                            <label for="resume-title">Professional Title/Headline*</label>
+                            <input type="text" id="resume-title" name="title" required placeholder="e.g., Software Engineer, Marketing Specialist">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-summary">Professional Summary*</label>
+                            <textarea id="resume-summary" name="summary" rows="3" required placeholder="Briefly describe your professional background and key skills"></textarea>
+                        </div>
+                        
+                        <!-- Work Experience -->
+                        <h3 style="color: #815854; margin: 2rem 0 1rem;">Work Experience</h3>
+                        <div id="experience-container">
+                            <!-- Experience fields will be added here by JavaScript -->
+                        </div>
+                        <button type="button" class="add-experience-btn" style="background: #815854; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; margin-bottom: 1rem;" onclick="addExperienceField()">+ Add Another Position</button>
+                        
+                        <!-- Education -->
+                        <h3 style="color: #815854; margin: 2rem 0 1rem;">Education</h3>
+                        <div id="education-container">
+                            <!-- Education fields will be added here by JavaScript -->
+                        </div>
+                        <button type="button" class="add-education-btn" style="background: #815854; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; margin-bottom: 1rem;" onclick="addEducationField()">+ Add Another Degree</button>
+                        
+                        <!-- Skills -->
+                        <h3 style="color: #815854; margin: 2rem 0 1rem;">Skills</h3>
+                        <div class="form-group">
+                            <label for="resume-skills">List your key skills (comma separated)*</label>
+                            <textarea id="resume-skills" name="skills" rows="2" required placeholder="e.g., Project Management, Photoshop, Data Analysis"></textarea>
+                        </div>
+                        
+                        <!-- Resume Preferences -->
+                        <h3 style="color: #815854; margin: 2rem 0 1rem;">Resume Preferences</h3>
+                        <div class="form-group">
+                            <label for="resume-style">Preferred Resume Style*</label>
+                            <select id="resume-style" name="style" required>
+                                <option value="">Select a style</option>
+                                <option value="modern">Modern</option>
+                                <option value="professional">Professional</option>
+                                <option value="creative">Creative</option>
+                                <option value="minimalist">Minimalist</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-color">Preferred Color Scheme</label>
+                            <select id="resume-color" name="color">
+                                <option value="blue">Blue</option>
+                                <option value="black">Black & White</option>
+                                <option value="green">Green</option>
+                                <option value="red">Red</option>
+                                <option value="custom">Custom (specify in notes)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-notes">Additional Notes/Requirements</label>
+                            <textarea id="resume-notes" name="notes" rows="3" placeholder="Any specific requirements or preferences you'd like us to know about"></textarea>
+                        </div>
+                        
+                        <!-- File Upload -->
+                        <div class="form-group">
+                            <label for="resume-file">Upload Current Resume (optional)</label>
+                            <input type="file" id="resume-file" name="resume_file" accept=".pdf,.doc,.docx">
+                            <small>We can use this as a reference (PDF or Word document)</small>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit Resume Request</button>
+                    </form>
+                    
+                    <center><a href="#" class="cta-button" onclick="showSection('resume')">Back to Resume Templates</a></center>
+                </div>
+            </div>
+        </section>
         <!--banner section-->
         <section id="banner" class="section">
         
@@ -184,7 +294,7 @@
                 <!-- 4th banner -->
                 <div class="thumbnail-wrapper">
                     <a href="#banner-popup-4">
-                        <img src="PIC\Banner 4.png" 
+                        <img src="PIC\banner 4.png" 
                             alt="banner Template 4" 
                             class="thumbnail">
                     </a>
@@ -193,7 +303,7 @@
                 <!-- 5th banner -->
                 <div class="thumbnail-wrapper">
                     <a href="#banner-popup-5">
-                        <img src="PIC\Banner 5.png" 
+                        <img src="PIC\banner 5.png" 
                             alt="banner Template 5" 
                             class="thumbnail">
                     </a>
@@ -665,7 +775,7 @@
                 <!-- third logo -->
                 <div class="thumbnail-wrapper">
                     <a href="#logo-popup-3">
-                        <img src="PIC\travel logo.jpg" 
+                        <img src="PIC\Black and White Minimalist Professional Initial Logo[1].jpg" 
                             alt="logo Template 3" 
                             class="thumbnail">
                     </a>
@@ -696,7 +806,7 @@
 
             <div id="logo-popup-3" class="overlay">
                 <a href="#" class="close-btn">&times;</a>
-                <img src="PIC\travel logo.jpg" 
+                <img src="PIC\Black and White Minimalist Professional Initial Logo[1].jpg" 
                     class="enlarged-img">
             </div>
 
@@ -770,10 +880,10 @@
                         <div class="form-group">
                             <label for="budget">Budget Range (MYR)</label>
                             <select id="budget" name="budget">
-                                <option value="50-100">RM50 - RM100</option>
-                                <option value="100-200">RM100 - RM200</option>
-                                <option value="200-300">RM200 - RM300</option>
-                                <option value="300+">RM300+</option>
+                                <option value="10-50">RM10 - RM50</option>
+                                <option value="51-100">RM51 - RM100</option>
+                                <option value="101-200">RM101 - RM200</option>
+                                <option value="300+">RM200+</option>
                                 <option value="unsure">Not sure</option>
                             </select>
                         </div>
@@ -878,15 +988,14 @@
         <!-- Employee Section -->
         <section id="Employee" class="section">
             <div class="container">
-                <div class="content-section">
+                <div class="content-section"style="overflow: hidden;">
                     <h2 class="section-title">Our Team</h2>
                     <p class="about-content" style="text-align: center; margin-bottom: 3rem;">
                         Meet the talented individuals behind CanvaKita who work tirelessly to bring you beautiful, professional designs.
                     </p>
 
                         <!-- In your main Employee section, update each team-card like this: -->
-                        <div class="team-card" onclick="showEmployeeProfile('anis')" style="cursor: pointer; background: rgba(249, 235, 222, 0.7); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease;">
-                            <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
+                        <div class="team-card" onclick="showEmployeeProfile('anis')" style="cursor: pointer; background: rgba(249, 235, 222, 0.7); padding: 1.5rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; max-width: 100%; box-sizing: border-box;">                            <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
                                 <img src="PIC\Anis_Qihah.jpg" alt="Anis Faqihah" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <h3 style="color: #815854; margin-bottom: 0.5rem;">Anis Faqihah</h3>
@@ -899,8 +1008,7 @@
                         </div>
 
                         <!-- Fatin Syazana -->
-                        <div class="team-card" onclick="showEmployeeProfile('fatin')" style="cursor: pointer; background: rgba(249, 235, 222, 0.7); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease;">
-                            <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
+                        <div class="team-card" onclick="showEmployeeProfile('fatin')" style="cursor: pointer; background: rgba(249, 235, 222, 0.7); padding: 1.5rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; max-width: 100%; box-sizing: border-box;">                            <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
                                 <img src="PIC\Fatin_Syaza.jpg" alt="Fatin Syazana" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <h3 style="color: #815854; margin-bottom: 0.5rem;">Fatin Syazana</h3>
@@ -915,8 +1023,7 @@
 
 
                         <!-- Arif Zulkarnain -->
-                        <div class="team-card" onclick="showEmployeeProfile('arif')" style="cursor: pointer; background: rgba(249, 235, 222, 0.7); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease;">
-                            <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
+                        <div class="team-card" onclick="showEmployeeProfile('arif')" style="cursor: pointer; background: rgba(249, 235, 222, 0.7); padding: 1.5rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; max-width: 100%; box-sizing: border-box;">                            <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
                                 <img src="PIC\Arif_Zul.jpg" alt="Arif Zulkarnain" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <h3 style="color: #815854; margin-bottom: 0.5rem;">Arif Zulkarnain</h3>
@@ -930,8 +1037,8 @@
                         </div>  
 
                         <!-- Khairul Naqiu -->
-                        <div class="team-card" onclick="showEmployeeProfile('khairul')" style="cursor: pointer; background: rgba(249, 235, 222, 0.7); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease;">
-                            <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
+                <!-- Khairul Naqiu -->
+                        <div class="team-card" onclick="showEmployeeProfile('khairul')" style="cursor: pointer; background: rgba(249, 235, 222, 0.7); padding: 1.5rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; max-width: 100%; box-sizing: border-box;">                            <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; background: #815854; margin: 0 auto 1.5rem; overflow: hidden; border: 5px solid rgba(129, 88, 84, 0.2);">
                                 <img src="PIC\Me(1)(1).jpg" alt="Khairul Naqiu" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <h3 style="color: #815854; margin-bottom: 0.5rem;">Khairul Naqiu</h3>
@@ -1162,15 +1269,16 @@
 
             <div class="footer-column">
                 <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#" onclick="showSection('home')">Home</a></li>
-                    <li><a href="#" onclick="showSection('templates')">Templates</a></li>
-                    <li><a href="#" onclick="showSection('about')">About Us</a></li>
-                    <li><a href="#" onclick="showSection('contact')">Contact</a></li>
-                    <li><a href="#" onclick="showSection('custom')">Custom Orders</a></li>
+                <ul class="footer-links" style="padding: 0; margin: 0; list-style: none; text-align: center;">
+                    <li style="margin-bottom: 0.5rem;"><a href="#" onclick="showSection('home')">Home</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#" onclick="showSection('templates')">Templates</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#" onclick="showSection('about')">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#" onclick="showSection('contact')">Contact</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#" onclick="showSection('custom')">Custom Orders</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#" onclick="showSection('Employee',event)">Employee</a></li>
                 </ul>
             </div>
-
+            
             <div class="footer-column">
                 <h3>Contact Info</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Kedah, Malaysia</p>
