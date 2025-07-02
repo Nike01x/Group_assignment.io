@@ -538,9 +538,10 @@ main {
     font-size: 0.9rem;
     opacity: 0.8;
 }
-/* Employee Profile Styles */
+
 .employee-profile {
-    display: none;
+    min-height: calc(100vh - 80px); /* Adjust for header height */
+    overflow-y: auto;
 }
 
 .employee-profile.active {
@@ -592,7 +593,10 @@ main {
     transform: translateY(-2px);
 }
 
-
+.team-card div[style*="display: flex"] {
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .employee-profile .feature-card {
     background: rgba(249, 235, 222, 0.5);
@@ -669,5 +673,175 @@ main {
     .social-links {
         justify-content: center;
     }
+
+    /* Employee cards */
+    .team-card {
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+    }
+    
+    /* Employee profile sections */
+    .employee-profile-content {
+        padding: 1rem;
+    }
+    
+    .employee-header .team-photo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .employee-details {
+        padding: 1.5rem;
+    }
+    
+    /* Fix for skill tags */
+    .team-card div[style*="justify-content: center"] {
+        justify-content: flex-start !important;
+        flex-wrap: wrap;
+    }
+    
+    /* Employee profile features */
+    .employee-profile .features {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Fix for the back button */
+    .employee-profile .cta-button {
+        margin-bottom: 1rem;
+    }
+    
+    /* Make sure employee sections don't have horizontal overflow */
+    .employee-profile .container {
+        padding: 0 15px;
+    }
+    
+    /* Adjust employee profile header */
+    .employee-header h2.section-title {
+        font-size: 2rem;
+    }
+    
+    .employee-header h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Employee grid layout */
+    .content-section > .features {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+        
+    .team-card {
+        max-width: 100%;
+    }
+
+    /* Center the employee cards container */
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    /* Employee cards specific styling */
+    .team-card {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto 2rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    /* Ensure all card contents are centered */
+    .team-card > * {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    /* Override any inline styles that might be affecting alignment */
+    .team-card[style*="text-align:"] {
+        text-align: center !important;
+    }
+
+    /* Center the team photo */
+    .team-photo {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Center the skill tags container */
+    .team-card div[style*="display: flex"] {
+        justify-content: center !important;
+    }
+
+    /* Center the employee cards container */
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+    }
+    
+        /* Employee cards specific styling */
+    .team-card {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto 2rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+        /* Ensure all card contents are centered */
+    .team-card > * {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    
+        /* Override any inline styles that might be affecting alignment */
+    .team-card[style*="text-align:"] {
+        text-align: center !important;
+        }
+    
+    /* Center the team photo */
+    .team-photo {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Center the skill tags container */
+    .team-card div[style*="display: flex"] {
+        justify-content: center !important;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0.5rem !important;
+    }
+    
+    .team-card {
+        margin: 0 auto !important;
+        width: 90% !important;
+        padding: 1rem !important;
+    }
+    
+    .team-photo {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    
+    #Employee .container {
+        padding: 0 15px !important;
+    }
+    
+    #Employee .content-section {
+        padding: 1rem !important;
+    }
 }
+
+
+    
+
 </style>
